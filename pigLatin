@@ -1,0 +1,19 @@
+# Write your code here :-)
+message = """ My name is AL SWEIGART and I am 4,000 years old."""
+newMessage = message.strip().split(" ")
+
+for i in range(len(newMessage)):
+    if newMessage[i][0].lower() in ("a", "e", "i", "o", "u"):
+        if newMessage[i][-1]=='.':
+            newMessage[i]=newMessage[i][:-1]+"yay"+newMessage[i][-1]
+        else:
+            newMessage[i] += "yay"
+    else:
+        if newMessage[i][0].isdigit():
+            continue
+        else:
+            if len(newMessage[i])>2 and  newMessage[i][1] not in ("a", "e", "i", "o", "u"):
+                newMessage[i] = newMessage[i][2:] + newMessage[i][0:2] + "ay"
+            else:
+                newMessage[i] = newMessage[i][1:] + newMessage[i][0] + "ay"
+print(' '.join(newMessage))
