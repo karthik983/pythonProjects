@@ -1,0 +1,18 @@
+#! python3
+# A multiclipboard program
+import pyperclip,sys
+TEXT={"agree":""" Yes I agree that sounds fine to me!""",
+'busy':'''Sorry  can we do this later this week or next week?''',
+'upsell':'''Would you consider making this a monthly donation.'''
+}
+
+if len(sys.argv)<2:
+    print('Usage: python paperclip.py [keyphrase] - copy phrase text')
+    sys.exit()
+keyphrase=sys.argv[1]
+
+if keyphrase in TEXT:
+    pyperclip.copy(TEXT[keyphrase])
+    print(f'Text for {keyphrase} copied to clipboard')
+else:
+    print('There is no text for %s'%(keyphrase))
